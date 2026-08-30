@@ -72,7 +72,6 @@ export default function ${dir.charAt(0).toUpperCase() + dir.slice(1)}Page() {
 
   return (
     <>
-      <a className="skip-link" href="#main">Skip to content</a>
       <Navbar />
       <main id="main" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(parsed.mainContent)} }} />
       <Footer />
@@ -153,7 +152,6 @@ export default function DocsHubPage() {
 
   return (
     <>
-      <a className="skip-link" href="#main">Skip to content</a>
       <Navbar />
       <main id="main" dangerouslySetInnerHTML={{ __html: ${JSON.stringify(docsHubParsed.mainContent)} }} />
       <Footer />
@@ -286,7 +284,6 @@ export default function DocDetailPage({ params }) {
 
   return (
     <>
-      <a className="skip-link" href="#main">Skip to content</a>
       <Navbar />
       <main id="main" dangerouslySetInnerHTML={{ __html: doc.mainContent }} />
       <Footer />

@@ -155,19 +155,7 @@
         background: var(--mint);
         color: var(--brand-dark);
       }
-      .skip-link {
-        position: absolute;
-        left: -9999px;
-        top: 0;
-        z-index: 999;
-        background: var(--brand);
-        color: #fff;
-        padding: 10px 16px;
-        border-radius: 0 0 8px;
-      }
-      .skip-link:focus {
-        left: 0;
-      }
+
       .container {
         width: 100%;
         max-width: var(--container);
@@ -719,25 +707,10 @@
         display: block;
         border: none;
       }
-      .video-container mux-player {
+      .video-container video {
         width: 100%;
         height: 100%;
-        --controls: none;
-        --seek-bar: none;
-        --volume-range: none;
-        --time-display: none;
-        --play-button: none;
-        --mute-button: none;
-        --fullscreen-button: none;
-        --pip-button: none;
-      }
-      .video-container mux-player::part(controls) {
-        display: none !important;
-      }
-      .video-container mux-player::part(play-button) {
-        display: none !important;
-      }
-      .video-container mux-player::part(poster) {
+        object-fit: cover;
         border-radius: var(--radius-lg);
       }
       .video-overlay {
@@ -1752,32 +1725,13 @@
         outline: none;
         display: block;
       }
-      mux-player.review-card__video {
+      video.review-card__video {
         pointer-events: none;
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
-        --controls: none;
-        --seek-bar: none;
-        --volume-range: none;
-        --time-display: none;
-        --play-button: none;
-        --mute-button: none;
-        --fullscreen-button: none;
-        --pip-button: none;
-      }
-      mux-player.review-card__video::part(video) {
         object-fit: cover;
-      }
-      mux-player.review-card__video::part(controls) {
-        display: none !important;
-      }
-      mux-player.review-card__video::part(control-bar) {
-        display: none !important;
-      }
-      mux-player.review-card__video::part(gesture-layer) {
-        display: none !important;
       }
       .review-card__tap {
         position: absolute;
@@ -1828,7 +1782,7 @@
       .review-card.is-playing .review-card__hint {
         opacity: 0;
       }
-      .review-card.is-playing mux-player.review-card__video::part(poster) {
+      .review-card.is-playing video.review-card__video {
         opacity: 0;
       }
       .review-card__content {

@@ -186,7 +186,6 @@ export default function DocDetailPage() {
 
   return (
     <>
-      <a className="skip-link" href="#main">Skip to content</a>
       <Navbar />
       <main id="main" dangerouslySetInnerHTML={{ __html: doc.mainContent }} />
       <Footer />

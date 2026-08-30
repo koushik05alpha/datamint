@@ -744,14 +744,15 @@ function VideoPlayer() {
   return (
     <div className="pg card reveal in" id="videoCard">
       <div className="video-container">
-        <mux-player
+        <video
           id="muxVideo"
           ref={videoRef}
-          stream-type="on-demand"
-          playback-id="2sPGgzMKybrDMiRRCQVYUDyUbuFNNx4DTOgUAR4b001Q"
+          className="mux-player"
+          src="https://stream.mux.com/2sPGgzMKybrDMiRRCQVYUDyUbuFNNx4DTOgUAR4b001Q.m3u8"
           poster="/posters/demo-poster.webp"
-          playsinline="true"
-        ></mux-player>
+          playsInline
+          controls
+        />
         <div className="video-overlay" id="videoOverlay" ref={overlayRef}>
           <button className="play-btn" id="playBtn" aria-label="Play video demo">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
@@ -792,16 +793,13 @@ function ReviewCard({ playbackId, poster, quote, boldWord }) {
   return (
     <div className="review-card" ref={cardRef}>
       <div className="review-card__media">
-        <mux-player
+        <video
           ref={videoRef}
           className="review-card__video"
-          stream-type="on-demand"
-          playback-id={playbackId}
+          src={`https://stream.mux.com/${playbackId}.m3u8`}
           poster={poster}
-          playsinline="true"
-          no-controls="true"
-          style={{ '--media-object-fit': 'cover' }}
-        ></mux-player>
+          playsInline
+        />
         <div className="review-card__hint">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
             <path d="M8 5v14l11-7z" />
@@ -867,15 +865,6 @@ function usePageInit() {
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     if (toTop) toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Mux player CDN (load once)
-    if (!document.getElementById('mux-player-script')) {
-      const s = document.createElement('script');
-      s.id = 'mux-player-script';
-      s.src = 'https://cdn.jsdelivr.net/npm/@mux/mux-player/dist/mux-player.mjs';
-      s.type = 'module';
-      document.head.appendChild(s);
-    }
 
     return () => {
       io.disconnect();
